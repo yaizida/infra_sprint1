@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 sentry_sdk.init(
-    dsn=os.getenv('SECRET_KEY'),
+    dsn = os.getenv("SECRET_KEY"),
     integrations=[
         DjangoIntegration(),
     ],
