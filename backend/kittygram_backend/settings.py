@@ -1,13 +1,28 @@
 import os
+
+import sentry_sdk
 from pathlib import Path
+from sentry_sdk.integrations.django import DjangoIntegration
+from dotenv import load_dotenv
+
+load_dotenv()
+sentry_sdk.init(
+    dsn=os.getenv('SECRET_KEY'),
+    integrations=[
+        DjangoIntegration(),
+    ],
+    traces_sample_rate=1.0,
+    send_default_pii=True
+)
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-cg6*%6d51ef8f#4!r3*$vmxm4)abgjw8mo!4y-q*uq1!4$-89$'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS =['158.160.1.54',  '127.0.0.1', 'localhost','izidaandkittygram.myftp.biz']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -90,8 +105,8 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATIC_URL = '/static/'
-
+STATIC_URL = '/static_backend/'
+STATIC_ROOT = BASE_DIR / 'static_backend' 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -110,3 +125,5 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
 
 }
+MEDIA_ROOT = '/var/www/infra_sprint1/media/'
+MEDIA_URL ='media/'

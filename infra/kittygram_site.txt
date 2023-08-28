@@ -1,0 +1,5 @@
+IP: 158.160.1.54;
+name_taski: https://izidatasks.ddns.net/;
+name_kittygram: https://izidaandkittygram.myftp.biz/;
+login: admin;
+password: admin; 
