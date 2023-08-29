@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 sentry_sdk.init(
-    dsn="https://55d1e410768f6bb44ce19c596987e91e@o4505773160660992.ingest.sentry.io/4505783073112064",
+    dsn="https://b8b76e62372b3062ef065d4d1df3e144@o4505773160660992.ingest.sentry.io/4505786914766848",
     integrations=[
         DjangoIntegration(),
     ],
@@ -18,7 +18,7 @@ sentry_sdk.init(
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-cg6*%6d51ef8f#4!r3*$vmxm4)abgjw8mo!4y-q*uq1!4$-89$'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = False
 
