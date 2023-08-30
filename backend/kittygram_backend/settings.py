@@ -1,5 +1,5 @@
 import os
-import json
+
 
 import sentry_sdk
 from pathlib import Path
@@ -23,7 +23,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = json.loads(str(os.getenv('HOSTS')))
+ALLOWED_HOSTS = os.getenv('HOSTS').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
