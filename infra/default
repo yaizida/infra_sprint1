@@ -25,17 +25,6 @@ server {
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
 
-}
-server {
-    if ($host = izidatasks.ddns.net) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbo    
-    listen 80;
-    server_name 158.160.1.54 izidatasks.ddns.net;
-    return 404; # managed by Certbot
-
-
-}
 server {
     server_name izidaandkittygram.myftp.biz;
 
@@ -71,10 +60,16 @@ server {
     if ($host = izidaandkittygram.myftp.biz) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
-
-
     listen 80;
     server_name izidaandkittygram.myftp.biz;
+    return 404; # managed by Certbot
+
+
+    if ($host = izidatasks.ddns.net) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbo 
+    listen 80;
+    server_name 158.160.1.54 izidatasks.ddns.net;
     return 404; # managed by Certbot
 
 
