@@ -1,4 +1,5 @@
 import os
+from distutils.util import strtobool
 
 import sentry_sdk
 from pathlib import Path
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = bool(os.getenv("DEBUG")) is not True
+DEBUG = bool(strtobool(os.getenv('DEBUG', 'False')))
 
 ALLOWED_HOSTS = os.getenv('HOSTS', '').split(',')
 
